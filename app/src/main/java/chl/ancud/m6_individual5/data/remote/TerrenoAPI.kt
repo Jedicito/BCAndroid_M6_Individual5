@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface TerrenoAPI {
 
-    @GET("realstate")
+    @GET("realestate")
     suspend fun getData(): Response<List<Terreno>>
 }
