@@ -3,13 +3,14 @@ package chl.ancud.m6_individual5.presentacion
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import chl.ancud.m6_individual5.data.local.TerrenoEntity
 import chl.ancud.m6_individual5.data.remote.Terreno
 import chl.ancud.m6_individual5.databinding.ItemTerrenoBinding
 import coil.load
 
 class AdapterTerreno: RecyclerView.Adapter<AdapterTerreno.ItemTerrenoViewHolder>() {
     lateinit var binding: ItemTerrenoBinding
-    private val listaTerrenos = mutableListOf<Terreno>()
+    private val listaTerrenos = mutableListOf<TerrenoEntity>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -28,14 +29,14 @@ class AdapterTerreno: RecyclerView.Adapter<AdapterTerreno.ItemTerrenoViewHolder>
         return listaTerrenos.size
     }
 
-    fun setData(listaTerrenos: List<Terreno>) {
+    fun setData(listaTerrenos: List<TerrenoEntity>) {
         this.listaTerrenos.clear()
         this.listaTerrenos.addAll(listaTerrenos)
         notifyDataSetChanged()
     }
 
     class ItemTerrenoViewHolder(val binding: ItemTerrenoBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(terreno: Terreno) {
+        fun bind(terreno: TerrenoEntity) {
             binding.imgTerreno.load(terreno.imagen)
             binding.tvTipo.text = terreno.tipo
             binding.tvPrecio.text = terreno.precio.toString()

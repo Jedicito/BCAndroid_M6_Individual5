@@ -1,14 +1,19 @@
 package chl.ancud.m6_individual5.data.local
 
 import androidx.lifecycle.LiveData
+import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import chl.ancud.m6_individual5.data.remote.Terreno
 
+@Dao
 interface TerrenoDao {
-    @Insert
-    suspend fun insertTerreno(terrenoEntity: TerrenoEntity)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertTerreno(terrenoEntity: List<TerrenoEntity>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertTerrenos(terrenoEntity: List<TerrenoEntity>)
 
     @Query("Select * from tabla_terreno order by id asc")
-    fun getTareas(): LiveData<List<TerrenoEntity>>
+    fun getTerrenos(): LiveData<List<TerrenoEntity>>
 }
