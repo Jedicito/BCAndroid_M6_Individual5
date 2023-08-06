@@ -1,8 +1,11 @@
 package chl.ancud.m6_individual5.presentacion
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import chl.ancud.m6_individual5.R
 import chl.ancud.m6_individual5.data.local.TerrenoEntity
 import chl.ancud.m6_individual5.data.remote.Terreno
 import chl.ancud.m6_individual5.databinding.ItemTerrenoBinding
@@ -40,6 +43,16 @@ class AdapterTerreno: RecyclerView.Adapter<AdapterTerreno.ItemTerrenoViewHolder>
             binding.imgTerreno.load(terreno.imagen)
             binding.tvTipo.text = terreno.tipo
             binding.tvPrecio.text = terreno.precio.toString()
+            binding.constraintLayoutItem.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putString("id", terreno.id)
+                bundle.putString("tipo", terreno.tipo)
+                bundle.putString("imagen", terreno.imagen)
+                bundle.putLong("precio", terreno.precio)
+                Navigation.findNavController(binding.root).navigate(
+                    R.id.action_listadoFragment_to_detalleFragment, bundle
+                )
+            }
         }
 
     }
