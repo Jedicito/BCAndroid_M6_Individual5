@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import chl.ancud.m6_individual5.R
 import chl.ancud.m6_individual5.databinding.FragmentDetalleBinding
 import coil.load
+import androidx.activity.addCallback
+import androidx.navigation.Navigation
+import chl.ancud.m6_individual5.R
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -47,6 +49,9 @@ class DetalleFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentDetalleBinding.inflate(layoutInflater)
         setComponentes()
+        binding.flVolver.setOnClickListener {
+            Navigation.findNavController(binding.root).navigate(R.id.action_detalleFragment_to_listadoFragment)
+        }
         return binding.root
     }
 
