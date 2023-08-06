@@ -2,15 +2,17 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:id="@+id/constraintLayoutItem"
+    android:layout_width="150dp"
+    android:layout_height="210dp"
+    android:layout_marginTop="10dp"
     android:background="#2DD528"
     android:backgroundTint="#469E82">
 
     <ImageView
         android:id="@+id/imgTerreno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="120dp"
         android:contentDescription="@string/imgTerrenoContentDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
